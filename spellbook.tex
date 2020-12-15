@@ -1,0 +1,147 @@
+%!TEX TS-program = lualatex
+
+% pdfx metadata
+\begin{filecontents*}{\jobname.xmpdata}
+    \Title{Himo's Spellbook}
+    \Language{en-US}
+    \Keywords{D&D 5e\sep Spellbook}
+\end{filecontents*}
+
+\documentclass[a4paper,USenglish,10pt]{scrartcl}
+\usepackage{babel,selnolig}
+\usepackage[a-3u]{pdfx}
+\usepackage{multicol}
+\usepackage{microtype}
+\usepackage{spells}
+
+% font package, use lf for new-style number figures
+\usepackage[lf]{ebgaramond}
+
+\KOMAoptions{
+    twoside=on,
+    DIV=15, % textarea (see scrguide)
+    BCOR=15mm % gutter
+}
+\setlength{\columnsep}{7.5mm} % spaltenabstand
+
+\hypersetup{
+    % open pdf with bookmarks tab open
+    pdfpagemode=UseOutlines,
+    % open with page fit to width
+    pdfstartview=FitH
+}
+
+\begin{document}
+\begin{multicols*}{2}
+%%%%%%%%%%%%%%%%%%%% A %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{A}{A}%
+\input{spells/1/absorb_elements}
+
+%%%%%%%%%%%%%%%%%%%% B %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{B}{B}%
+\input{spells/4/blight}
+
+%%%%%%%%%%%%%%%%%%%% C %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{C}{C}%
+%\input{spells/6/contingency} % Fulminating Treatise
+\input{spells/3/counterspell}
+
+%%%%%%%%%%%%%%%%%%%% D %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{D}{D}%
+\input{spells/1/detect_magic}
+\input{spells/4/dimension_door}
+%\input{spells/1/disguise_self}
+\input{spells/3/dispel_magic}
+
+%%%%%%%%%%%%%%%%%%%% E %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{E}{E}%
+\input{spells/2/earthbind}
+\input{spells/2/enlarge_reduce}
+\input{spells/4/evards_black_tentacles}
+\input{spells/1/expedious_retreat}
+
+%%%%%%%%%%%%%%%%%%%% F %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{F}{F}%
+\input{spells/1/feather_fall}
+\input{spells/3/fireball} % Fulminating Treatise
+\input{spells/0/fire_bolt}
+\input{spells/3/fly}
+
+%%%%%%%%%%%%%%%%%%%% G %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{G}{G}%
+\input{spells/3/gaseous_form}
+\input{spells/1/grease}
+\input{spells/2/gust_of_wind} % Fulminating Treatise
+
+%%%%%%%%%%%%%%%%%%%% H %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{H}{H}%
+\input{spells/3/haste}
+
+%%%%%%%%%%%%%%%%%%%% I %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{I}{I}%
+\input{spells/1/ice_knife}
+\input{spells/1/identify}
+\input{spells/0/infestation}
+\input{spells/2/invisibility}
+
+%%%%%%%%%%%%%%%%%%%% J %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% K %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% L %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{L}{L}%
+\input{spells/3/leomunds_tiny_hut} % Fulminating Treatise
+\input{spells/3/lightning_bolt}
+
+%%%%%%%%%%%%%%%%%%%% M %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{M}{M}%
+\input{spells/1/mage_armor}
+\input{spells/1/magic_missile} % Fulminating Treatise
+\input{spells/2/maximilians_earthen_grasp}
+\input{spells/2/misty_step} % Fey Teleportation
+
+%%%%%%%%%%%%%%%%%%%% N %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% O %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% P %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Q %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% R %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{R}{R}%
+\input{spells/0/ray_of_frost}
+
+%%%%%%%%%%%%%%%%%%%% S %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{S}{S}%
+\input{spells/2/see_invisibility}
+\input{spells/1/shield}
+\input{spells/0/shocking_grasp}
+\input{spells/1/snare}
+\input{spells/4/stoneskin}
+\input{spells/4/storm_sphere}
+
+%%%%%%%%%%%%%%%%%%%% T %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{T}{T}%
+\input{spells/3/thunder_step}
+\input{spells/1/thunderwave} % Fulminating Treatise
+
+%%%%%%%%%%%%%%%%%%%% U %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% V %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{V}{V}%
+\input{spells/3/vampiric_touch}
+
+%%%%%%%%%%%%%%%%%%%% W %%%%%%%%%%%%%%%%%%%%
+\pdfbookmark[1]{W}{W}%
+%\input{spells/5/wall_of_force} % Fulminating Treatise
+\input{spells/1/witch_bolt}
+
+%%%%%%%%%%%%%%%%%%%% X %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Y %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% Z %%%%%%%%%%%%%%%%%%%%
+
+\end{multicols*}
+\end{document}

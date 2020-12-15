@@ -1,0 +1,38 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{spells}
+  [2029/12/15 v0.01 DnD Spell format]
+
+\RequirePackage{hyperref}
+\RequirePackage{xcolor}
+\RequirePackage[super]{nth}
+
+\newcommand{\spTime}[1]{\textbf{Casting Time:}\,{#1}\\}
+\newcommand{\spRange}[1]{\textbf{Range:}\,{#1}\\}
+\newcommand{\spTarget}[1]{\textbf{Target:}\,{#1}\\}
+\newcommand{\spComponents}[1]{\textbf{Components:}\,{#1}\\}
+\newcommand{\spDuration}[1]{\textbf{Duration:}\,{#1}\\}
+\newcommand{\note}[1]{\textbf{\textit{#1}}}
+
+% spell environment insert title, bookmark, spell attributes and text.
+% takes 4 arguments: name, rulebook, type and attributes.
+% contains spell description.
+\newenvironment{spell}[4]{%
+% insert hyperref pdf bookmark before spell
+\pdfbookmark[2]{#1 (#3)}{#1}%
+\noindent{%
+\Large\textsc{\ignorespaces#1}%
+}{%
+\,\normalfont{\textsuperscript{\footnotesize\color{gray}\ignorespaces#2}}%
+}\\%
+\nopagebreak\textit{\ignorespaces#3}\vskip 0.5\baselineskip
+\noindent\begingroup%
+\ignorespaces#4%
+\endgroup\\[-1ex]%
+\noindent\ignorespaces%
+}{%
+% prioritize pagebreak after spell, so that spells are
+% completly on one page
+\filbreak%
+% space to next spell with some rubber 
+\vspace{3.5ex plus 2.5ex minus 1ex}%
+}
