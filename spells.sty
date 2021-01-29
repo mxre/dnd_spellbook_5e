@@ -1,16 +1,24 @@
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 \ProvidesPackage{spells}
-  [2029/12/15 v0.01 DnD Spell format]
+  [2020/12/15 v0.01 DnD Spell format]
 
 \RequirePackage{hyperref}
 \RequirePackage{xcolor}
+\RequirePackage{enumitem}
 \RequirePackage[super]{nth}
+
+\newif\if@card\@cardfalse
+\DeclareOption{a8paper}{
+  \@cardtrue
+}
+
+\ProcessOptions\relax
 
 \newcommand{\spTime}[1]{\textbf{Casting Time:}\,{#1}\\}
 \newcommand{\spRange}[1]{\textbf{Range:}\,{#1}\\}
 \newcommand{\spTarget}[1]{\textbf{Target:}\,{#1}\\}
 \newcommand{\spComponents}[1]{\textbf{Components:}\,{#1}\\}
-\newcommand{\spDuration}[1]{\textbf{Duration:}\,{#1}\\}
+\newcommand{\spDuration}[1]{\textbf{Duration:}\,{#1}}
 \newcommand{\note}[1]{\textbf{\textit{#1}}}
 
 % spell environment insert title, bookmark, spell attributes and text.
@@ -24,15 +32,48 @@
 }{%
 \,\normalfont{\textsuperscript{\footnotesize\color{gray}\ignorespaces#2}}%
 }\\%
-\nopagebreak\textit{\ignorespaces#3}\vskip 0.5\baselineskip
-\noindent\begingroup%
-\ignorespaces#4%
-\endgroup\\[-1ex]%
+\if@card% A8 index card
+\nopagebreak\textit{\ignorespaces#3}\null\vspace{-1\baselineskip}%
 \noindent\ignorespaces%
+#4%
+\end{multicols}%
+\null\vspace{-2.1\baselineskip}%
+\hrule%
+\null\vspace{-1.7\baselineskip}%
+\begin{multicols}{2}%
+\noindent\ignorespaces\footnotesize%
+\else% A4
+\nopagebreak\textit{\ignorespaces#3}
+\null\vskip 0.25\baselineskip%
+\noindent\ignorespaces%
+#4%
+\null\vskip 0.25\baselineskip%
+\noindent\ignorespaces%
+\fi%
 }{%
+\if@card%
+\pagebreak%
+\else%
 % prioritize pagebreak after spell, so that spells are
 % completly on one page
 \filbreak%
 % space to next spell with some rubber 
 \vspace{3.5ex plus 2.5ex minus 1ex}%
+\fi%
+}
+
+\setlist[itemize]{
+  parsep=0pt,
+  itemsep=0pt,
+  partopsep=0pt,
+  topsep=0.5ex,
+  leftmargin=*
+}
+
+\setlist[enumerate]{
+  parsep=0pt,
+  itemsep=0pt,
+  partopsep=0pt,
+  topsep=0.5ex,
+  leftmargin=*
 }
